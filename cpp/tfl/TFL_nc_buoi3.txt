@@ -1,0 +1,96 @@
+B9: Phát quà
+
+i 0 1 2 3 4 5 6 7 8
+a 0 4 6 7 6 4 0 0 0
+
+Sub 1: cày trâu 2 vòng for
+khai báo mảng a
+for i từ 1 tới n
+   for bên trái i, cộng vô
+   for bên phải i, cộng vô
+
+Sub 2: 
+? tại vị trí k, những vị trí i khác cộng vào k bao nhiêu?
+! i - |i-k|
+tổng hết lại
+
+Sub 3:
+sẽ có một đoạn liên tiếp cộng vào vị trí k.
+Chia ra bên trái và bên phải.
+Bên phải: cộng đúng k luôn. Xét xem vị trí của k so với n
+Bên trái: Cộng số i riêng, cộng khoảng cách riêng
+Lấy tổng i trừ tổng khoảng cách.
+long long
+
+B5: Cắt bánh
+In ra (2*k) chia lấy dư, dấu %
+k = 0 :D
+B6: 
+Hướng 1: Thử từng số d khác nhau có thể là gcd?
+Hướng 2 (các bạn orz): đáp án không quá 2 (xét chẵn lẻ). Tuy nhiên nó hơi đặc biệt như 5 9, 5 21, 
+
+B7: Tích bằng nhau
+Monte-Carlo
+Thay vì tính tích là một con số rất lớn, ta tính kết quả chia lấy dư và so sánh 2 số dư.
+**Xác suất cao sẽ đúng.
+Tích a = Tích b SUY RA Dư a = Dư b
+khi nào bị sai? khi có 2 dãy số tích khác nhau nhưng dư bằng nhau. Nhưng xác suất thấp.
+
+Thuật toán: mỗi lần, lấy một số dư ngẫu nhiên để thử
+HOẶC
+lấy một vài số nguyên tố mạnh như 1e9+7, 2004010501
+
+B4: Vẽ hình
+Kiểm tra thuộc đường tròn.
+Khoảng cách từ (x,y) cho tới (u,v) có
+NHỎ HƠN BẰNG
+Bán Kính R?
+
+---> Công thức khoảng cách?
+
+Thuật toán?
+for x
+	for y
+		nếu điểm (x,y) nằm trong đường tròn (u,v) bán kính R
+			in ra .
+		ngược lại
+			in ra #
+
+B8: tổng chẵn
+k = 0: để im 
+k = 1
+- thay một số lẻ thành chẵn --> thay chữ số cuối thành 8
+- thay một số chẵn?
+
+928
+998
+
+  906
+99792
+99698
+
+bước 1: tính tổng các số chẵn ban đầu
+bước 2: thử qua từng trường hợp
+	tính lượng thay đổi?
+chênh_lệnh_to_nhất
+max_diff
+
+
+B10:
+cẩn thận khi chia lấy dư
+for từng chữ cái
+xem thử:
+chữ cái này xuất hiện trong những xâu con nào?
+khi đó giá trị của nó bằng bao nhiêu?
+
+(1^2 + 2^2 + ... + L^2) * R * thứ tự
+
+c: 3 x (1 + 4 + 9)
+b: 2 x 2 x (1 + 4)
+a: 1 x 3 x (1)
+
+
+
+
+
+

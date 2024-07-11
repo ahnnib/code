@@ -1,0 +1,1 @@
+double(n) / double(i)

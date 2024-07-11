@@ -1,0 +1,43 @@
+Bài 4:
+Cần chia 2? 
+   Lí do: Nếu chọn được 1 tập có tổng = tập còn lại, thì ta cũng có thể chọn phần bù.
+   Ví dụ, n = 3, {1 2 3}, code QHĐ đếm được hai cách là {1 2} và {3}.
+	Thấy là phần thứ nhất = {1,2}, phần thứ hai = {3}
+	hay
+	phần thứ nhất = {3}, phần thứ hai = {1,2}
+	là 2 cách giống nhau
+
+Làm như thế nào?
+1. Fermat nhỏ: a^(p-1) = 1 (mod p) (p là SNT) --> phép chia cho a thì nhân với a^(p-2) (?)
+2. ManhQuan orz (trong QHĐ, chừa ra 1 số bất kì, không chọn)
+	Lí do: tập con này có chọn số thứ i thì "tập bù" của nó sẽ không chọn, 
+	ngược lại nếu nó không chọn thì "tập bù" của nó phải chọn.
+	Việc loại đi 1 số đảm bảo chỉ chọn 1 tập mà ko chọn tập bù của nó?
+	Giải thích kiểu khác:
+	Với một phần tử x cố định nào đó
+	Trong mọi cách chia, luôn tồn tại một phần chứa x, phần còn lại không chứa x.
+	Vậy ta luôn có thể giả sử "phần thứ nhất" là phần không chứa x. Lúc này ta đếm mỗi cách chọn 1 lần duy nhất.
+
+Bài 3:
+
+const int N = 105;
+const int W = 1e5 + 50; // N * 1000
+
+bool dp[N][W];  //dp(i,s) = true nếu xét trong i số đầu, tạo được tổng là s
+
+công thức:
+
+dp = false hết
+dp[0][0] = true
+
+dp[i][s] = dp[i-1][s] || dp[i-1][s - a[i]];
+
+bitset:
+F |= F << a[i]
+
+ 
+Bài knapsack2:
+dp(i số, tổng khối lượng) = tổng giá trị  (cố định khối lượng, làm sao để giá trị lớn nhất)
+dp(i số, tổng giá trị) = tổng khối lượng  (cố định giá trị, làm sao để khối lượng nhỏ nhất)
+
+"Đảo nhãn" thật ra là đi tính một bài QHĐ khác, mà giới hạn các chiều của nó đủ small để lưu mảng.

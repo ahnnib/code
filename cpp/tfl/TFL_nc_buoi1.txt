@@ -1,0 +1,46 @@
+Bài 2: plugin
+
+Ưu tiên ổ cắm có nhiều chỗ nhất
+Sắp xếp a giảm dần
+Mỗi ổ cắm cho thêm a-1 (tốn 1 chỗ cho sợi dây)
+
+Bài 1:
+** Cày trâu
+Chọn một số bất kì làm số đầu tiên
+Cộng dần các số tiếp theo cho tới khi đủ N
+
+
+** Thuật full:
+Nháp
+Tổng từ L tới R = 
+(L+R) * (R-L+1) / 2
+
+Vậy điều kiện là:
+(L+R) * (R-L+1) = 2N
+R-L+1 <= R < L+R
+
+có tích --> vậy chạy for tới căn để thử giá trị của R-L+1
+
+60
+1,2,3,4,5,6,
+10,12,15,20,30,60
+
+*** Khi nào thì có nghiệm? Có bao nhiêu?
+"Có bao nhiêu cách phân tích thành tổng của các số liên tiếp"
+(giải trong O(1)?)
+
+
+Bài 3:
+Cứ thêm vào những số nhỏ nhất
+--> Thêm được nhiều
+
+Để full, không được dùng 2 for
+
+TKNP: 
+* phải tăng dần (Trong bài này, có a sắp xếp tăng nên TBC cũng tăng)
+* duy trì một đoạn liên tiếp [L,R] có khả năng là đáp án, hỏi số ở giữa.
+
+TBC = tổng / số lượng
+
+S[i]: tổng a[1] + a[2] + a[3] + ... + a[i]
+S[i] = S[i-1] + a[i]

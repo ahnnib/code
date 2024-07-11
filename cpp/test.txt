@@ -1,0 +1,9 @@
+truy van tong l -> r -> mang cong don
+so so co gia tri trong [l, r]: cnp (cach cua a quang), 2 con tro, offline query
+sinh nhi phan, hoan vi, to hop
+dqql 2 -> chia bo 2
+tham lam -> cf
+dp: coin combinations I II
+hash
+mat mul
+dp digit

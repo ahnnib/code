@@ -1,0 +1,87 @@
+bài 1:
+"bài toán tối ưu"
+
+nhỏ nhất / lớn nhất ....
+
+- tham lam: ưu tiên theo một tiêu chí, (Ổ cắm & Lì xì)
+- quy hoạch động: bài toán đếm + bài toán tối ưu
+- TKNP trên đáp án: "cái nhỏ nhất là đạt GTLN" "cái lớn nhất đạt GTNN" 90%
+
+bài 2:
+
+tính từ a tới b
+---> tính từ 1 tới n: F(x) = tổng chữ số từ 1 tới n
+
+F(b) - F(a-1) // prefix-sum
+"contribution to the sum" - Codeforces blog
+đóng góp vào tổng bao nhiêu?
+
+- cách 1: với từng số, lấy chữ số ra mà tính
+- cách 2: **tính theo từng chữ số**
+a = 037
+b = 231
+
+chữ số mấy?
+hàng nào?
+
+với x = 37 (= a)
+1_
+_1
+
+có bao nhiêu số nhỏ hơn (a = 37) mà:
++ có chữ số 1 ở hàng đơn vị
++ có chữ số 1 ở hàng chục?
+
+ví dụ khác: số 2 ở hàng chục, x = 231
+231
++ _2_
++ _3_
++ _8_
+
+tổng quát hóa:
+dùng vòng for để chọn ra
++ chữ số d
++ đứng ở hàng mấy
++ sau đó dựa vào 2 phần còn lại, so sánh với số x để rút ra được chữ số này xuất hiện trong bao nhiêu số
+--> tính vào tổng.
+
+dp digit - QHĐ chữ số (nâng cao):
+đang xây dựng, thêm dần từng chữ số từ trái sang phải, (thông tin cần lưu: so sánh tiền tố)
+
+bài 3:
+
+đếm bộ (l,r) thỏa mãn ....
+for l từ 1 tới n
+	for r từ l tới n
+		tính toán gì đó để xem đoạn [l,r] có thỏa mãn tính chất?
+		2 vòng for
+
+chia hết cho 3
+(a+b) mod c = (a mod c) + (b mod c) mod c
+(+,-,*)
+
+trong đoạn từ l tới r:
+- có bao nhiêu số 0
+- bao nhiêu số 1
+bao nhiêu số 2
+
+dựa vào đếm tính số dư
+
+                                   I'BE RIGHT BACK (AFTER FEW MINS)
+____
+cnt[3]
+
+mỗi số đếm có thể xét theo mod 3
+
+(0,1,2)
+3*3*3 = 27
+
+đếm phân phối theo bộ 3:
+
+ở vị trí R, số đếm từ 1 tới R là (v1_R, v2_R, v3_R)
+
+thì dùng đếm phân phối: có (v1_L, v2_L, v3_L) ở trước
+
+O(n) * 27
+O(n)
+
