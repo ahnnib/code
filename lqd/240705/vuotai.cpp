@@ -5,7 +5,7 @@ using namespace std;
 #define debug cout << "dfad\n";
 
 int main() {
-    // dung giap cho ai lon nhat
+    // dung giap cho a_i lon nhat
     ll n, k; cin >> n >> k;
     ll res = 0, mx = 0;
     for (int i = 0; i < n; i++) {

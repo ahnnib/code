@@ -15,4 +15,14 @@ int main()
     }
 
     cout << res;
+    /*
+    const ll m = 2 * MOD;
+    ll sum = 0, sumsq = 0;
+    for (int i = 0; i < n; i++) {
+        (sum += a[i]) %= m;
+        (sumsq += a[i] * a[i]) %= m;
+    }
+    ll Q = (sum * sum - sumsq + m * m) % m;
+    cout << Q / 2;
+    */
 }
