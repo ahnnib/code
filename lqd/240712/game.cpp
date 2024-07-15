@@ -1,12 +1,12 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long
 #define debug cout << "dfad\n";
 
 int main() {
-    // freopen("game.inp", "r", stdin);
-    // freopen("game.out", "w", stdout);
+    freopen("GAME.INP","r",stdin);
+    freopen("GAME.OUT","w",stdout);
 
     int n; cin >> n; string s; cin >> s;
     int cnt[123] = {}; for (int i = 0; i < n; i++) cnt[s[i]]++;
@@ -22,16 +22,14 @@ int main() {
         binh += s[L]; s[L] = ','; cnt[ch]--;
     }
     // cout << an << '\n' << binh;
-    auto cmp = [&](string a, string b) -> bool { // a < b -> a thang
-        bool c; if (a.size() > b.size()) swap(a, b), c = 1;
-        int i = 0;
-        for (i < a.size(); i++) {
-            if (a[i] < b[i]) return (a[i] < b[i]) ^ c;
-            if (a[i] > b[i]) return (a[i] > b[i]) ^ c;
+    an += '0'; binh += '0';
+    for (int i = 0; i< min(an.size(), binh.size()); i++){
+        if (an[i] < binh[i]) return cout << "NO", 0;
+        else if (binh[i] < an[i]) {
+            cout << "YES\n";
+            for(int j = 0; j < binh.size()-1; j++) cout << binh[j];
+            return 0;
         }
-        return (a.size() < b.size()) ^ c;
-    };
-    if (cmp(binh, an)) cout << "YES";
-    else cout << "NO";
-    cout << '\n' << binh;
+    }
+    cout << "NO";
 }
