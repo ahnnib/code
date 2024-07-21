@@ -16,14 +16,15 @@ ll kt(ll x) {
     return res;
 }
 int main() {
+    freopen("betue.inp", "r", stdin);
+    freopen("betue.out", "w", stdout);
     cin >> n >> m;
     for (int i = 0; i < m; i++) cin >> a[i];
     ll l = 1, r = 1e9, mid;
     while (l <= r) {
         mid = (l + r) >> 1;
-        if (kt(mid) < n) r = mid - 1;
+        if (kt(mid) <= n) r = mid - 1;
         else l = mid + 1;
-        // cout << m    id << '\n';
     }
-    cout << r;
+    cout << l;
 }
