@@ -6,34 +6,21 @@ using namespace std;
 void solve() {
     string s, t; cin >> s >> t;
     int ns = s.size(), nt = t.size();
-    s += ' ';
-    int r = 0;
-    for (int l = 0; l < nt; l++) {
-        while (r < ns && s[r] != t[l] && s[r] != '?') r++;
-        if (s[r] == t[l]) r++;
-        else if (r == ns) {
-            cout << "NO\n";
-            return;
+    int j = 0;
+    for (int i = 0; i < ns; i++) {
+        if (s[i] == '?') {
+            if (j < nt) s[i] = t[j++];
+            else s[i] = 'z';
         }
-        else if (s[r] == '?') {
-            s[r] = t[l];
-        }
-        cout << l << ' ' << r << '\n';
+        else if (s[i] == t[j]) j++;
     }
-    if (r == ns) {
-        cout << "YES\n";
-        for (int i = 0; i < ns; i++) { if (s[i] == '?') cout << 'z'; else cout << s[i]; }
-        cout << '\n';
-    }
-    else {
-        cout << "NO\n";
-    }
+    if (j < nt) cout << "NO";
+    else cout << "YES" << '\n' << s;
+    cout << '\n';
 }
 /*
 aaaaa?a
 axxa
-YES
-aaaaaxa
 */
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
