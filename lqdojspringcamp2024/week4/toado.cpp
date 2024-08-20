@@ -1,3 +1,4 @@
+// Cho 2 điểm nguyên A(m, n), B(p, q). Đếm số lượng điểm nguyên giữa A và B.
 #include <iostream>
 #include <algorithm>
 using namespace std;

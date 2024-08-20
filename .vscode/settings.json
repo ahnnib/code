@@ -51,6 +51,7 @@
         "chrono": "cpp",
         "latch": "cpp",
         "semaphore": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "bitset": "cpp"
     }
 }
