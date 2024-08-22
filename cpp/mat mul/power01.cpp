@@ -87,8 +87,10 @@ ll g(ll x, ll n) {
     if (n == 0) return 1;
     if (n == 1) return (1 + x) % m;
     else if (n & 1) return (1 + x % m * g(x, n-1) % m) % m;
-    else return ((1 + expo(x, n>>1, m)) % m * (g(x, n>>1) - 1) % m + 1 + m) % m;
-
+    else {
+        return ((1 + expo(x, n>>1, m)) % m * (g(x, n>>1) - 1) % m + 1 + m) % m;
+        // Cách 2.1: ll t = expo(x, n>>1, m); return ((((1 + t) % m) * g(x, n>>1) % m - t) % m + m) % m;
+    }
 }
 signed main()
 {
@@ -103,7 +105,6 @@ ll g(ll x, ll n) {
     if (n & 1) return x % m * (1 + g(x, n-1)) % m;
     ll t = g(x, n>>1) % m;
     return (t + expo(x, n>>1, m) * t) % m;
-
 }
 signed main()
 {

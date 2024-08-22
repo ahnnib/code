@@ -1,24 +1,24 @@
 #include <iostream>
-// #include <math.h>
 using namespace std;
+#define ll long long
+#define debug cout << "dfad\n";
 
 const int mod = 1e9 + 7;
-
-int main()
-{
-    long n;
-    cin >> n;
-
-    // int root = sqrt(n);
-    long long sum = 0;
-    for (int i = 1; i * i <= n; i++)
-    {
-        if (n % i == 0)
-        {
-            sum += i;
-            if (i != n / i) sum += n / i;
-            sum %= mod;
-        }
+const int inv = 500000004;
+ll range_sum(ll a, ll b) {
+    ll t = (a + b)%mod * ((b - a + 1)%mod) % mod;
+    return t * inv % mod;
+}
+int main() {
+    ll n; cin >> n;
+    ll i = 1;
+    ll res = 0;
+    while (i <= n) {
+        ll q = n/i;
+        ll last = n/q;
+        res += (q%mod) * range_sum(i, last) % mod;
+        res %= mod;
+        i = last+1;
     }
-    cout << sum;
+    cout << res;
 }
