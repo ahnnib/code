@@ -39,7 +39,7 @@ void solve() {
 
     cin >> n; for (int i = 1; i <= n; i++) cin >> p[i]; cin >> s; s = ' ' + s;
     init(n);
-    for (int i = 1; i <= n; i++) { // tao cac vung lien thong
+    for (int i = 1; i <= n; i++) {
         dfs(p[i]);
     }
     for (int i = 1; i <= n; i++) {
@@ -50,10 +50,6 @@ void solve() {
     for (int i = 1; i <= n; i++) {
         cout << cntblack[p[i]] << ' ';
     }
-    // for (int i = 1; i <= n; i++) cout << cntblack[i] << " \n"[i == n];
-    // for (int i = 1; i <= n; i++) cout << par[i] << " \n"[i == n];
-    // for (int i = 1; i <= n; i++) cout << sz[i] << " \n"[i == n];
-    // for (int i = 1; i <= n; i++) cout << cntblack[find(p[i])] << ' ';
     cout << '\n';
 }
 
