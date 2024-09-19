@@ -1,26 +1,28 @@
 #include <iostream>
 using namespace std;
+#define ll long long
 
-const long long mod = 1e9 + 7;
-
-long long expo(long long a, long long b, long long m)
-{
-    if (b == 0) return 1;
-    long long t = expo(a, b/2, m);
-    t = (t % m * t % m) % m;
-    return t * (b % 2 ? a : 1) % m;
+const ll mod = 1e9 + 7;
+ll exp(ll a, ll b, ll m) {
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1) res = res * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
 }
-
-int main()
-{
-    int n;
-    cin >> n;
-    while (n --> 0)
-    {
-        long long a, b, c;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    ll a, b, c;
+    int n; cin >> n; while (n--) {
         cin >> a >> b >> c;
-
-        // Fermat's little theorem
-        cout << expo(a, expo(b, c, mod-1), mod) << '\n';
+        cout << exp(a, exp(b, c, mod-1), mod) << '\n';
     }
 }
+/*
+Fermat's little theorem: a^(p-1) = 1 (mod p prime)
+let d = b^c = (p-1)k + r -> d = r (mod p-1)
+-> a^d = a^r (mod p)
+*/
