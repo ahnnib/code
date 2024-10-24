@@ -1,8 +1,10 @@
+package java.sc02;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public class a2005 {
 
 
     public static long[][][] dp = new long[10][2][2];
