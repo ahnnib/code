@@ -38,8 +38,8 @@ using namespace std;
 #define dbg cout << "dfad\n";
 
 int main() {
-    // freopen("dnp.inp", "r", stdin);
-    // freopen("dnp.out", "w", stdout);
+    freopen("dnp.inp", "r", stdin);
+    freopen("dnp.out", "w", stdout);
 
     int n; cin >> n;
 
