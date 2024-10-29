@@ -4,16 +4,17 @@ using namespace std;
 #define dbg cout << "dfad\n";
 
 int a, b;
-int dp[9][90];
+int dp[9][2000];
+const int C = 1000;
 
 int f(vector<int> &dig, int vt, int tt, bool tight) {
     if (vt < 0) {
-        return (!((tt % 2 == 0) || (tt % 3 == 0) || (tt % 5 == 0) || (tt % 7 == 0)) || \
-                (tt == 2 || tt == 3 || tt == 5 || tt == 7)) && tt != 1;
+        return (!((tt % 2 == 0) || (tt % 3 == 0) || (tt % 5 == 0) || (tt % 7 == 0)) ||
+                (tt == 2 || tt == 3 || tt == 5 || tt == 7)) && tt != 1 && tt > 0;
     }
 
-    if (!tight && dp[vt][tt] != -1) {
-        return dp[vt][tt];
+    if (!tight && dp[vt][tt + C] != -1) {
+        return dp[vt][tt + C];
     }
 
     int res = 0, lim = tight ? dig[vt] : 9;
@@ -22,15 +23,15 @@ int f(vector<int> &dig, int vt, int tt, bool tight) {
     }
 
     if (!tight) {
-        dp[vt][tt] = res;
+        dp[vt][tt + C] = res;
     }
 
     return res;
 }
 
 int main() {
-    // freopen("lucifer.inp", "r", stdin);
-    // freopen("lucifer.out", "w", stdout);
+    freopen("lucifer.inp", "r", stdin);
+    freopen("lucifer.out", "w", stdout);
 
     cin >> a >> b;
 
