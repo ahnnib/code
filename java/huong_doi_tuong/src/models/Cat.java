@@ -1,6 +1,7 @@
 package models;
 
 public class Cat {
+    // class: là đại diện cho các Object có chung những thuộc tính cơ bản
     private String ten;
     private int soChan;
     private String mauLong;
@@ -21,6 +22,16 @@ public class Cat {
         this.mauLong = mauLong;
         this.doTuoi = doTuoi;
     }
+
+    Arrays.sort(a, new Comparator<Cat>() {
+        public int compare(Cat o1, Cat o2) { // return x > 0 neu muon doi cho
+            // o1 .. o2
+            if (o1.getsoChan() > o2.getsoChan()) return 1;
+            else return -1;
+
+            // return o1.getsoChan() - o2.getsoChan();
+        }
+    });
 
     public String toString() {
         return "Ten = " + ten + ", soChan = " + soChan + ", mauLong = " + mauLong + ", doTuoi = " + doTuoi;
