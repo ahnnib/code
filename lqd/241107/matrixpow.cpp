@@ -6,16 +6,16 @@ using namespace std;
 int m; ll n;
 
 const ll mod = 1e9 + 7;
-const int sz = 3;
+const int sz = 100;
 struct Mat {
-    ll m[sz][sz] = {};
+    ll M[sz][sz] = {};
 } dv;
 Mat operator *(const Mat &a, const Mat &b) {
     Mat res;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
             for (int k = 0; k < m; k++) {
-                (res.m[i][j] += (a.m[i][k] * b.m[k][j])) %= mod;
+                (res.M[i][j] += (a.M[i][k] * b.M[k][j])) %= mod;
             }
         }
     }
@@ -29,29 +29,31 @@ Mat powM(Mat a, ll n) {
     }
     return res;
 }
-void printM(Mat &mt) {
+void printM(Mat &M) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
-            cout << mt.m[i][j] << " \n"[j == m-1];
+            cout << M.M[i][j] << " \n"[j == m-1];
         }
     }
 }
+void pp() {
+    for (int i = 0; i < m; i++) dv.M[i][i] = 1;
+}
 
 int main() {
-    for (int i = 0; i < sz; i++) dv.m[i][i] = 1;
-
-    // freopen("matrixpow.inp", "r", stdin);
-    // freopen("matrixpow.out", "w", stdout);
+    freopen("matrixpow.inp", "r", stdin);
+    freopen("matrixpow.out", "w", stdout);
 
     cin >> m >> n;
+
+    pp();
+
     Mat a;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
-            cin >> a.m[i][j];
+            cin >> a.M[i][j];
         }
     }
-
     a = powM(a, n);
-
     printM(a);
 }

@@ -3,10 +3,8 @@ using namespace std;
 #define ll long long
 #define dbg cout << "dfad\n";
 
-ll k, m, a[10], c[10];
-
 const ll mod = 1e9 + 7;
-const int sz = 10;
+const int sz = 4;
 struct Mat {
     ll m[sz][sz] = {};
 } dv;
@@ -21,7 +19,7 @@ Mat operator *(const Mat &a, const Mat &b) {
     }
     return res;
 }
-Mat powM(Mat a, ll n) {
+Mat powM(Mat a, int n) {
     Mat res = dv;
     for (; n > 0; n >>= 1) {
         if (n & 1) res = res * a;
@@ -36,39 +34,38 @@ void printM(Mat &m) {
         }
     }
 }
+void pp() {
+    for (int i = 0; i < sz; i++) dv.m[i][i] = 1;
+}
 
-ll sol(ll n) {
-    if (n <= k) {
-        return c[n-1];
-    }
-    Mat fi, cs;
-    for (int i = 0; i < k; i++) {
-        fi.m[0][i] = c[i];
-    }
-    for (int i = 0; i < k-1; i++) {
-        cs.m[i+1][i] = 1;
-    }
-    for (int i = 0; i < k; i++) {
-        cs.m[i][k-1] = a[i];
+
+int n;
+void sol() {
+    cin >> n;
+    if (n <= 0) {
+        cout << "1\n";
+        return;
     }
 
-    fi = fi * powM(cs, n - k);
+    Mat fi;
+    fi.m[0][0] = fi.m[0][1] = fi.m[0][2] = 1; fi.m[0][3] = 2;
+    Mat cs;
+    cs.m[0][1] = 2;
+    cs.m[1][0] = cs.m[1][2] = cs.m[3][2] = cs.m[3][3] = 1;
+    cs.m[1][1] = 3;
+    cs.m[2][2] = 4;
+    fi = fi * powM(cs, n);
 
-    return fi.m[0][k - 1];
+    cout << fi.m[0][2] << '\n';
 }
 
 int main() {
-    freopen("bigseq.inp", "r", stdin);
-    freopen("bigseq.out", "w", stdout);
 
-    for (int i = 0; i < sz; i++) dv.m[i][i] = 1;
-
-    cin >> k >> m;
-    for (int i = 0; i < k; i++) cin >> a[i];
-    for (int i = 0; i < k; i++) cin >> c[i];
-
-    for (int i = 0; i < m; i++) {
-        ll n; cin >> n;
-        cout << sol(n) << ' ';
-    }
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    pp() ;
+    freopen("aba15e.inp", "r", stdin);
+    freopen("aba15e.out", "w", stdout);
+    int t = 1;
+    cin >> t;
+    while(t--) sol();
 }

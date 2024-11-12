@@ -3,10 +3,9 @@ using namespace std;
 #define ll long long
 #define dbg cout << "dfad\n";
 
-ll k, m, a[10], c[10];
 
 const ll mod = 1e9 + 7;
-const int sz = 10;
+const int sz = 4;
 struct Mat {
     ll m[sz][sz] = {};
 } dv;
@@ -36,39 +35,26 @@ void printM(Mat &m) {
         }
     }
 }
-
-ll sol(ll n) {
-    if (n <= k) {
-        return c[n-1];
-    }
-    Mat fi, cs;
-    for (int i = 0; i < k; i++) {
-        fi.m[0][i] = c[i];
-    }
-    for (int i = 0; i < k-1; i++) {
-        cs.m[i+1][i] = 1;
-    }
-    for (int i = 0; i < k; i++) {
-        cs.m[i][k-1] = a[i];
-    }
-
-    fi = fi * powM(cs, n - k);
-
-    return fi.m[0][k - 1];
+void pp() {
+    for (int i = 0; i < sz; i++) dv.m[i][i] = 1;
 }
 
+
 int main() {
-    freopen("bigseq.inp", "r", stdin);
-    freopen("bigseq.out", "w", stdout);
+    freopen("tudien.inp", "r", stdin);
+    freopen("tudien.out", "w", stdout);
+    pp() ;
 
-    for (int i = 0; i < sz; i++) dv.m[i][i] = 1;
+    int n; cin >> n;
 
-    cin >> k >> m;
-    for (int i = 0; i < k; i++) cin >> a[i];
-    for (int i = 0; i < k; i++) cin >> c[i];
-
-    for (int i = 0; i < m; i++) {
-        ll n; cin >> n;
-        cout << sol(n) << ' ';
+    Mat fi;
+    for (int i = 0; i < 4; i++) fi.m[0][i] = 1;
+    Mat cs;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (i != j) cs.m[i][j] = 1;
+        }
     }
+    fi = fi * powM(cs, n-1);
+    cout << fi.m[0][3];
 }
