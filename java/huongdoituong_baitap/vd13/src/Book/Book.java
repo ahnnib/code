@@ -45,18 +45,25 @@ public class Book {
 
     public void input() {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
         System.out.print("Enter name: ");
-        String name = sc.nextLine();
+        String name = sc2.nextLine();
         this.name = name;
 
         System.out.print("Enter price: ");
-        double price = sc.nextDouble();
+        double price = sc2.nextDouble();
         this.price = price;
 
         System.out.print("Enter quantity: ");
-        int quantity = sc.nextInt();
+        int quantity = sc2.nextInt();
         this.quantity = quantity;
+
+        // sc2.close(); -> returns error
+        // at java.base/java.util.Scanner.nextLine(Scanner.java:1677)
+        // at Book.Book.input(Book.java:51)
+        // at java.base/java.util.Scanner.nextLine(Scanner.java:1677)
+        // at Book.Book.input(Book.java:51)
+        // at App.main(App.java:23)
     }
 }
