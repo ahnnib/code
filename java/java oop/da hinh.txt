@@ -1,0 +1,69 @@
+1. Ghi đè phương thức: dòng lệnh @Override
+- Có 2 hàm tên giống nhau ở cả class cha và con
+-> khi gọi hàm sẽ lấy của con
+ví dụ hàm toString():
+cả cha và con có phương thức toString
+xóa hàm toString của con
+-> nếu print(Object), sẽ gọi toString của cha
+
+### Trong mọi ngôn ngữ lập trình OOP: nếu không nói gì thì class đó sẽ được hiểu là kế thừa lớp Object
+Có thể hiểu là Object là cha của mọi class
+
+từ khóa @Override: làm cho dễ hiểu hơn là lớp cha đã có toString, hàm dưới nó sẽ ghi đè lại
+final cho phương thức trong class: không cho phép class nào kế thừa phương thức đó
+
+
+public boolean equals(Object obj) {
+	if (this.getName().equals(obj.getName())) return true;
+ở đây, hàm equals sẽ gọi tới equals trong class String, chứ không đâu khác
+- Nếu muốn so sánh hai Object có nếu thuộc tính giống nhau thì trả về true, phải ghi đè hàm equals, hàm equals này vốn có sẵn trong class Object
+
+### 5 bước lập hàm equals: xem /java/inheritance/src/Student/Student.java dòng 45
+
+
+cách kế thừa hàm input()
+public void input() {
+	super.input();
+	...
+}
+- Tên biến nếu như không có this thì sẽ ngầm hiểu là của lớp hiện tại
+
+
+2. Nạp chồng phương thức (Overloading)
+- Nhiều hàm cùng tên gọi, nhưng nội dung khác nhau
+public void test() {
+	// in ra ABC
+}
+public void test(int a) {
+	// in ra AAA
+}
+public void test(String s) {
+	// in ra s
+}
+
+=> sẽ tùy vào kiểu dữ liệu và tham số mà chọn hàm để gọi. Bên cạnh đó, cách thức gọi giống như ở mục 1.
+
+### Chú ý: có thể gán 1 đối tượng kiểu dữ liệu lớp cha bằng lớp con
+Student s = new StudentIT();
+Student s2 = new StudentBA();
+=> sau này quản lý nhiều loại học sinh, có thể quản lý chung bằng 1 mảng kiểu dữ liệu Student
+Student students[] = new Student[100];
+students[0] = new StudentIT();
+students[3] = new StudentBA();
+--
+ví dụ: những hàm lớp con có mà lớp cha không có, nếu tạo Student s = new StudentIT();
+sẽ không thể get những đối tượng của StudentIT(), vì class con có thể gọi class cha, nhưng ngược lại thì không
+s vẫn là 1 student IT, mang kiểu dữ liệu Student
+nếu muốn get? ép kiểu (cast)
+int scoreJava = ((StudentIT) s).getScoreJava(); // phương thức của lớp con StudentIT
+# về vấn đề readability: có thể viết như sau
+StudentIT temp = (StudentIT) students[i];
+System.out.println(temp.getScoreJava());
+
+Nếu như một mảng có lẫn lộn StudentIT, StudentBA, ..., làm sao biết được? nếu như cast qua lại lẫn lộn sẽ lỗi
+-> từ khóa instanceof
+if (students[i] instanceof StudentIT) // trả về đúng tức là đối tượng của lớp StudentIT
+
+Object s = new StudentIT(); // => không bị lỗi
+
+btvn: 3, 4*, 5*

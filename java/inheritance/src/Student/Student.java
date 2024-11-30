@@ -1,5 +1,7 @@
 package Student;
 
+import java.util.Objects;
+
 public class Student {
     protected String masv = "";
     private String name = "";
@@ -35,6 +37,31 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("(%s, %s, $d)", masv, name, age);
+        return String.format("(%s, %s, %d)", masv, name, age);
+    }
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        // Check if the same reference
+        if (this == obj) {
+            return true;
+        }
+        // Check if the object is null or not the same class
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        // Cast the object to Student
+        Student student = (Student) obj;
+        // Compare fields
+        return Objects.equals(masv, student.masv) &&
+               Objects.equals(name, student.name) &&
+               age == student.age;
+    }
+    // Override hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(masv, name, age);
     }
 }

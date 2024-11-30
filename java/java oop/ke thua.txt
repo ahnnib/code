@@ -1,0 +1,7 @@
+static: tạo biến tĩnh
+
+so sanh gia tri + dia chi
+t == t2 -> false
+
+protected: su dung duoc trong package va cac sub-class
+khai bao protected trong subclass: sẽ sử dụng đc trong các sub-class con nữa

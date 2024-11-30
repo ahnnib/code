@@ -34,5 +34,7 @@ public class StudentIT extends Student { // ke thua lop Student
     @Override
     public String toString() {
         return String.format("(%s, %s, %d, %d, %d)", masv, super.getName(), super.getAge(), scoreCpp, scoreJava);
+        // masv: khai báo protected trong lớp cha nên có thể dùng
+        // name, age: khai báo private nên phải dùng từ khóa super: chỉ lớp cha gần nhất
     }
 }
