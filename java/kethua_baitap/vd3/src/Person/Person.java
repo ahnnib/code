@@ -1,4 +1,5 @@
 package Person;
+
 import java.util.Scanner;
 
 public class Person {
@@ -33,8 +34,34 @@ public class Person {
         this.name = name;
     }
 
-    public void input() {
-        Scanner sc = new Scanner(System.in);
+    @Override
+    public String toString() {
+        return String.format("%s, %d, %d", name, age, address);
     }
 
+
+    public void input() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Name: ");
+        name = sc.nextLine();
+        System.out.print("Age: ");
+        age = sc.nextInt();
+        System.out.print("Address: ");
+        address = sc.nextInt();
+
+        sc.close();
+    }
+
+
+    public int getYearOfBirth() {
+        return 2024 - age;
+    }
+    public String getUpperName() {
+        return name.toUpperCase();
+    }
+    public boolean checkAge(int age) {
+        return this.age >= age;
+    }
 }
