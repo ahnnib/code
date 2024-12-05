@@ -12,7 +12,7 @@ public class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Canh hinh vuong: " + super.getWidth();
     }
 
     @Override
@@ -23,5 +23,11 @@ public class Square extends Rectangle {
         super.setHeight(sc.nextInt());
 
         sc.close();
+    }
+
+
+    public void setSide(int side) {
+        super.setHeight(side);
+        super.setWidth(side);
     }
 }
