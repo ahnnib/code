@@ -1,16 +1,16 @@
 package Time;
 
 public class DateTime extends Time {
-    private int day = 0;
-    private int month = 0;
+    private int day = 1;
+    private int month = 1;
     private int year = 0;
 
     public DateTime() {}
-    public DateTime(int day, int month, int year, int hour, int minute, int second) {
+    public DateTime(int year, int month, int day, int hour, int minute, int second) {
         super(hour, minute, second);
-        this.day = day;
-        this.month = month;
         this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
     public void setDay(int day) {
@@ -37,27 +37,29 @@ public class DateTime extends Time {
         return year + "/" + month + "/" + day + " " + super.toString();
     }
 
-
     @Override
-    public int toSecond() {
-        return super.toSecond() +
-               day * 3600 * 24 +
-               month * 3600 * 24 * 30 +
-               year * 3600 * 24 * 365;
-    }
+    public void formatTime() {
+        super.formatTime();
+        day += days;
 
-    public void toDateTime(int second) {
-        Time t = new DateTime();
-        t = toTime(second);
-        second /= 3600;
-        second /= 60;
-        t.
+        month += (day - 1) / 30;
+        day = ((day - 1) % 30) + 1;
+
+        year += (month - 1) / 12;
+        month = ((month - 1) % 12) + 1;
     }
 
 
     public void nextDay() {
-        int curTime = this.toSecond();
-        curTime += 3600 * 24;
-        return toDateTime(curTime);
+        this.day += 1;
+        formatTime();
+    }
+    public void nextMonth() {
+        this.month += 1;
+        formatTime();
+    }
+    public void nextYear() {
+        this.year += 1;
+        formatTime();
     }
 }

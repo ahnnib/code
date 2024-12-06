@@ -1,13 +1,9 @@
-import Time.Time;
+import Time.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Time t = new Time(21, 53, 54);
-        System.out.println(t);
+        Time t = new DateTime(1, 12, 30, 23, 59, 59);
         t.nextSecond();
-        while (t.getHour() != 0 || t.getMinute() != 0 || t.getSecond() != 0) {
-            t.nextSecond();
-            System.out.println(t);
-        }
+        System.out.println(t);
     }
 }

@@ -1,9 +1,11 @@
 package Time;
 
 public class Time {
-    private int hour = 0;
-    private int minute = 0;
-    private int second = 0;
+    protected int hour = 0;
+    protected int minute = 0;
+    protected int second = 0;
+
+    protected int days; // dung cho DateTime
 
     public Time() {}
     public Time(int hour, int minute, int second) {
@@ -37,38 +39,26 @@ public class Time {
         return hour + ":" + minute + ":" + second;
     }
 
-    public int toSecond() {
-        return hour * 3600 + minute * 60 + second;
-    }
-    public Time toTime(int second) {
-        Time t = new Time();
-        t.hour = (second / 3600) % 24;
-        second %= 3600;
-        t.minute = second / 60;
+
+    public void formatTime() {
+        minute += second / 60;
         second %= 60;
-        t.second = second;
-        return t;
+        hour += minute / 60;
+        minute %= 60;
+        days = hour / 24;
+        hour %= 24;
     }
 
-
-    public void updateTime(Time t) {
-        this.hour = t.hour;
-        this.minute = t.minute;
-        this.second = t.second;
-    }
     public void nextSecond() {
-        int currentTime = this.toSecond();
-        int newTime = currentTime + 1;
-        updateTime(toTime(newTime));
+        this.second += 1;
+        formatTime();
     }
     public void nextMinute() {
-        int currentTime = this.toSecond();
-        int newTime = currentTime + 60;
-        updateTime(toTime(newTime));
+        this.minute += 1;
+        formatTime();
     }
     public void nextHour() {
-        int currentTime = this.toSecond();
-        int newTime = currentTime + 3600;
-        updateTime(toTime(newTime));
+        this.hour += 1;
+        formatTime();
     }
 }
