@@ -1,0 +1,12 @@
+4 tính chất:
+Tính đóng gói:
+giới hạn phạm vi sử dụng của biến, hàm, class
+private: sử dụng trong chính class đó
+ví dụ: private String an(): sẽ chỉ sử dụng đc trong class Cat trong file Cat.java
+default: nếu ko khai báo private/public thì nó sẽ mặc định là sử dụng đc trong cùng packet
+public: sử dụng được mọi nơi trong project
+// protected: buổi sau
+thông thường: thuộc tính để private, phương thức để public -> vẫn truy cập phương thức, và thuộc tính thông qua phương thức được, nhưng không thay đổi được thuộc tính	
+*nếu như muốn sửa đổi? viết thêm hàm để thay đổi, lấy giá trị...
+
+xem cách tạo nhanh toString, getter, setter
