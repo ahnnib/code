@@ -9,4 +9,13 @@ public: sử dụng được mọi nơi trong project
 thông thường: thuộc tính để private, phương thức để public -> vẫn truy cập phương thức, và thuộc tính thông qua phương thức được, nhưng không thay đổi được thuộc tính	
 *nếu như muốn sửa đổi? viết thêm hàm để thay đổi, lấy giá trị...
 
-xem cách tạo nhanh toString, getter, setter
+Các loại phương thức:
+Constructors (hàm khởi tạo)
+Accessors (hàm giúp truy cập các thuộc tính của đối tượng (getter))
+Mutators (hàm giúp thay đổi các thuộc tính như setter, ..)
+Static methods, Instance methods
+
+### các phương thức trong driver code (App.java) phải để static,
+vì trước khi chạy chương trình chính chưa có đối tượng nào được tạo ra,
+nếu không để static thì sẽ không thể gọi đến phương thức đó,
+vì thế nếu như hàm main() không có static sẽ lỗi
