@@ -25,7 +25,7 @@ from StudentIT.StudentIT import StudentIT
 # Nếu như muốn gọi phương thức của cha
 # Student.study(s) # --> Coder is Studying...
 
-# Trong Java, các KDL như int, bool... là KDL nguyên thủy (PRIMITIVE TYPES)
+# Trong Java, các kiểu dữ liệu như int, bool... là kiểu dữ liệu nguyên thủy (PRIMITIVE TYPES)
 # Khác với Python, mọi thứ đều là OBJECT
 # ví dụ: x = 4; type(x) --> <class 'int'>
 

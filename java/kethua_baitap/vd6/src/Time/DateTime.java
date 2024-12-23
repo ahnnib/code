@@ -3,7 +3,9 @@ package Time;
 public class DateTime extends Time {
     private int day = 1;
     private int month = 1;
-    private int year = 0;
+    private int year = 1;
+
+    private final int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public DateTime() {}
     public DateTime(int year, int month, int day, int hour, int minute, int second) {
@@ -37,13 +39,23 @@ public class DateTime extends Time {
         return year + "/" + month + "/" + day + " " + super.toString();
     }
 
+    private boolean isLeapYear(int yr) {
+        return ((yr % 400 == 0) || (yr % 100 != 0) && (yr % 4 == 0));
+    }
+    private int getDaysOfMonth(int mo) {
+        int result = daysInMonth[mo - 1];
+        if (mo == 2 && isLeapYear(this.year) == true) {
+            result += 1;
+        }
+        return result;
+    }
     @Override
     public void formatTime() {
         super.formatTime();
         day += days;
 
-        month += (day - 1) / 30;
-        day = ((day - 1) % 30) + 1;
+        month += (day - 1) / getDaysOfMonth(month);
+        day = ((day - 1) % getDaysOfMonth(month)) + 1;
 
         year += (month - 1) / 12;
         month = ((month - 1) % 12) + 1;
