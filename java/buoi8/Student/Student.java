@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Student {
     private String name = "Unknown";
     private int age = 18;
-    private ArrayList<Double> scores = new ArrayList<Double>();
-    public static String university = "";
+    private ArrayList<Double> scores = new ArrayList<>();
+    public static String university = "Unknown";
 
     public Student() {}
     public Student(String _name, int _age) {
@@ -17,7 +17,7 @@ public class Student {
         name = _name;
     }
     public void setAge(int _age) {
-        if (18 > _age || _age > 100) _age = 18;
+        if (_age < 18 || _age > 100) _age = 18;
         age = _age;
     }
     public void setScores(ArrayList<Double> scores) {
