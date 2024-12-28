@@ -1,0 +1,51 @@
+public abstract class Animal {
+    ...
+    public abstract void move();
+}
+abstract: từ khóa để khai báo hàm ảo (trừu tượng)
+chỉ có thể định nghĩa trong 1 abstract class
+
+[main.java]
+import Animal;
+
+main() {
+    Animal a = new Animal(); --> lỗi
+}
+
+không thể tạo 1 đối tượng mới nhưng có thể kế thừa từ đó
+
+public class Cat extends Animal {} --> lỗi
+bắt buộc phải ghi đè tất cả các phương thức
+Sửa:
+public class Cat extends Animal {
+    @Override
+    public void move() {
+        System.out.println("...");
+        // định nghĩa cụ thể phương thức move()
+    }
+}
+Nếu không thể tạo ra đối tượng trừu tượng thì các phương thức khởi tạo trong lớp trừu tượng có cần không
+-> Các hàm khởi tạo vẫn cần thiết để kế thừa cho lớp con
+
+So sánh lớp trừu tượng và lớp
+
+
+Interface:
+Chú ý: đây không phải 1 lớp
+public interface ITest {
+    public abstract void f();
+    public void f1();
+    // tất cả đều là public abstract
+}
+public interface ITest2 {
+    int f1();
+}
+Cách sử dụng:
+public class Cat extends Animal implements ITest, ITest2 /* Tính đa kế thừa */ {
+    // Bắt buộc ghi đè tất cả phương thức trong ITest, ITest2
+    @Override
+    public int f1() {
+        // incompatibletypeerror
+    }
+// *** Không thể có 2 hàm khác kiểu dữ liệu như thế
+}
