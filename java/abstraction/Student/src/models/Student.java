@@ -1,4 +1,4 @@
-package Student;
+package models;
 
 import java.util.Scanner;
 
@@ -35,8 +35,7 @@ public abstract class Student {
 
     @Override
     public String toString() {
-        // return "(" + masv + ", " + name + ", " + age + ")";
-        return String.format("(%s, %s, %d)", this.masv, this.name, this.age);
+        return String.format("%s, %s, %d", this.masv, this.name, this.age);
     }
 
     public void input() {
