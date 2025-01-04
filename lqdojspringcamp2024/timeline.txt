@@ -1,0 +1,4 @@
+dp general
+dp dao nhan
+dp thu tu tu dien
+toi uu dp digit (week8/demso.cpp)

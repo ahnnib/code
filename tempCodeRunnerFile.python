@@ -1,0 +1,27 @@
+# Nhập a, b, d1, d2, d3, x
+a, b, d1, d2, d3, x = list(map(int, input().split()))
+
+# total = 0
+
+if x <= a:
+    total = x * d1
+elif a < x and x <= b:
+    total = a * d1 + (x - a) * d2
+else:
+    total = a * d1 + (b - a) * d2 + (x - b) * d3
+
+print("Số tiền phải trả là: ", total)
+
+
+# score = float(input())
+# if score >= 9:
+#     print("Xuat sac")
+# elif score >= 8:
+#     print("Gioi")
+# elif score >= 7:
+#     print("Kha")
+# elif score >= 5:
+#     print("Trung binh")
+# else:
+#     print("Yeu kem")
+
