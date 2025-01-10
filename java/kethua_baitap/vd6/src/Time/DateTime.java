@@ -49,16 +49,28 @@ public class DateTime extends Time {
         }
         return result;
     }
+    protected void adjustDate(int extraDays) {
+        day += extraDays;
+
+        while (day > getDaysOfMonth(month)) {
+            day -= getDaysOfMonth(month);
+            month++;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
+    }
     @Override
     public void formatTime() {
         super.formatTime();
-        day += days;
+        // day += days;
 
-        month += (day - 1) / getDaysOfMonth(month);
-        day = ((day - 1) % getDaysOfMonth(month)) + 1;
+        // month += (day - 1) / getDaysOfMonth(month);
+        // day = ((day - 1) % getDaysOfMonth(month)) + 1;
 
-        year += (month - 1) / 12;
-        month = ((month - 1) % 12) + 1;
+        // year += (month - 1) / 12;
+        // month = ((month - 1) % 12) + 1;
     }
 
 
