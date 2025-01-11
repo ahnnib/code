@@ -41,8 +41,7 @@ public interface ITest2 {
     int f1();
 }
 Cách sử dụng:
-public class Cat extends Animal implements ITest, ITest2 /* Tính đa kế thừa */ {
-    // Bắt buộc ghi đè tất cả phương thức trong ITest, ITest2
+public class Cat extends Animal implements ITest, ITest2 { // Tính đa kế thừa -> bắt buộc ghi đè tất cả phương thức trong ITest, ITest2
     @Override
     public int f1() {
         // incompatibletypeerror

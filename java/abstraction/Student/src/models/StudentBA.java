@@ -33,6 +33,4 @@ public class StudentBA extends Student {
     public float calculateAverage() {
         return (scorePm + scoreBA) / 2;
     }
-
-
 }
