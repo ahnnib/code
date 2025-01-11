@@ -39,14 +39,14 @@ public abstract class Student {
     }
 
     public void input() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("masv: ");
-        masv = sc.nextLine();
-        System.out.print("name: ");
-        name = sc.nextLine();
-        System.out.print("age: ");
-        age = sc.nextInt();
-        sc.close();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("masv: ");
+            masv = sc.nextLine();
+            System.out.print("name: ");
+            name = sc.nextLine();
+            System.out.print("age: ");
+            age = sc.nextInt();
+        }
     }
     public abstract float calculateAverage();
 }

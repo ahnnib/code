@@ -1,55 +1,75 @@
 package models;
 
-import java.util.ArrayList;
 import interfaces.*;
+import java.util.*;
 
 public class StudentManager implements IManager {
-    private ArrayList<Student> students;
+    private final ArrayList<Student> students = new ArrayList<>();
 
     @Override
-    public void addStudent(Student s) {
-        students.add(s);
+    public void addStudent(Student student) {
+        if (!(student instanceof Student)) {
+            throw new IllegalArgumentException("\"student\" not instanceof Student.");
+        }
+        students.add(student);
     }
 
     @Override
     public void editStudent(String masv, Student student) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editStudent'");
+        for (Student s : students) {
+            if (s.getMasv().equals(student.getMasv())) {
+                s.setMasv(masv);
+            }
+        }
     }
 
     @Override
     public void removeStudent(String masv) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeStudent'");
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getMasv().equals(masv)) {
+                students.remove(i);
+                return;
+            }
+        }
     }
 
     @Override
     public Student findStudent(String masv) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findStudent'");
+        for (Student s : students) {
+            if (s.getMasv().equals(masv)) {
+                return s;
+            }
+        }
+        return null;
     }
 
     @Override
     public void sortByAge() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sortByAge'");
+        students.sort(Comparator.comparingInt(Student::getAge));
     }
 
     @Override
     public void sortByScore() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sortByScore'");
+        // throw new UnsupportedOperationException("Not supported yet.");
+        students.sort(Comparator.comparingDouble(Student::calculateAverage));
+
     }
 
     @Override
     public ArrayList<Student> findStudent(int age) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findStudent'");
+        ArrayList<Student> lst = new ArrayList<>();
+        for (Student s : students) {
+            if (s.getAge() == age) {
+                lst.add(s);
+            }
+        }
+        return lst;
     }
 
     @Override
     public void displayAllStudents() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayAllStudents'");
+        for (Student s : students) {
+            System.out.println(s);
+        }
     }
 }

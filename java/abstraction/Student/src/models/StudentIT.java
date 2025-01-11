@@ -33,13 +33,13 @@ public class StudentIT extends Student {
 
     @Override
     public void input() {
-        Scanner sc = new Scanner(System.in);
-        super.input();
-        System.out.print("scoreCpp: ");
-        scoreCpp = sc.nextInt();
-        System.out.print("scoreJava: ");
-        scoreJava = sc.nextInt();
-        sc.close();
+        try (Scanner sc = new Scanner(System.in)) {
+            super.input();
+            System.out.print("scoreCpp: ");
+            scoreCpp = sc.nextInt();
+            System.out.print("scoreJava: ");
+            scoreJava = sc.nextInt();
+        }
     }
 
     @Override

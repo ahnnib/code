@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import models.Student;
 
 public interface IManager {
-    void addStudent();
+    void addStudent(Student student);
     void editStudent(String masv, Student student);
     void removeStudent(String masv);
     Student findStudent(String masv);
