@@ -5,8 +5,6 @@ public class Time {
     protected int minute = 0;
     protected int second = 0;
 
-    protected int days; // dung cho DateTime
-
     public Time() {}
     public Time(int hour, int minute, int second) {
         this.hour = hour;
@@ -45,7 +43,14 @@ public class Time {
         second %= 60;
         hour += minute / 60;
         minute %= 60;
-        days = hour / 24;
+
+        int extraDays = hour / 24;
+        // if (this instanceof DateTime) {
+            //     ((DateTime) this).adjustDate(extraDays);
+            // }
+        if (this instanceof DateTime dateTime) {
+            dateTime.adjustDate(extraDays);
+        }
         hour %= 24;
     }
 

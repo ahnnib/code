@@ -9,7 +9,7 @@ pair<ll, ll> init = {-1, 0};
 pair<ll, ll> dp[18][180][5130]; // sum, cnt
 int w[10];
 ll base[19];
-bool not_coprime[180][5130]; // x, y coprime -> check[x][y] = 0
+bool not_coprime[180][5130];
 
 pair<ll, ll> f(vector<int> &dig, int vt, int t1, int t2, bool tight) {
     if (vt < 0) {
