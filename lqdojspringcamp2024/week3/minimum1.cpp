@@ -36,11 +36,17 @@ int main()
     cin >> n >> k; for (int i = 0; i < n; i++) cin >> a[i];
     deque<int> dq;
     for (int i = 0; i < n; ++i) {
-        while (!dq.empty() && i - dq.front() + 1 > k) dq.pop_front();
+        // remove elements out of current window
+        while (!dq.empty() && i - dq.front() + 1 > k) {
+            dq.pop_front();
+        }
+        // remove elements that are useless i.e. smaller than a[i]
         while (!dq.empty() && a[dq.back()] >= a[i]) {
             dq.pop_back();
         }
+        // push current element to deque
         dq.push_back(i);
+        // only print the result when a window is finished
         if (i >= k-1) cout << a[dq.front()] << '\n';
     }
     /* O(n)
@@ -49,7 +55,7 @@ int main()
     i la vi tri cuoi: i == n || i % k == 0
     f[i]: min tu dau khuc toi i, g[i]: min tu cuoi khuc toi i
     cin >> n >> k; for (int i = 1; i <= n; i++) cin >> a[i];
-    int f[n+1] = {}; for (int i = 1; i <= n; i++) f[i] = (i-1)%k==0 ? a[i] : min(f[i-1], a[i]); 
+    int f[n+1] = {}; for (int i = 1; i <= n; i++) f[i] = (i-1)%k==0 ? a[i] : min(f[i-1], a[i]);
     int g[n+1] = {}; for (int i = n; i > 0; i--) g[i] = i==n || i%k==0 ? a[i] : min(g[i+1], a[i]);
     for (int i = 1; i+k-1 <= n; i++) cout << min(g[i], f[i+k-1]) << ' ';
     */
