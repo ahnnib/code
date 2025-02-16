@@ -1,0 +1,1 @@
+// code/lqdojspringcamp2024/week3/minimum1.cpp
