@@ -52,7 +52,6 @@ public class StudentManager implements IManager {
     public void sortByScore() {
         // throw new UnsupportedOperationException("Not supported yet.");
         students.sort(Comparator.comparingDouble(Student::calculateAverage));
-
     }
 
     @Override
