@@ -31,13 +31,11 @@ int main() {
 
 
         stack<int> st;
-        for (int j = 0; j <= n; j++) {  // Include `n` for final cleanup
-            while (!st.empty() && (j == n || h[j] < h[st.top()])) {
-                int height = h[st.top()];
+        for (int j = 0; j < n; j++) {  // Include `n` for final cleanup
+            while (!st.empty() && h[st.top()] >= h[j]) {
                 st.pop();
-                int width = st.empty() ? j : (j - st.top() - 1);
-                res = max(res, (ll)height * width);
             }
+            res = max(res, 1ll * h[j] * (j - st.top()));
             st.push(j);
         }
     }
