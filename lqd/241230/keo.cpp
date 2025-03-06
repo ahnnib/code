@@ -21,7 +21,7 @@ int main() {
         return vasya + n1 >= bound;
     };
 
-    ll l = 0, r = 1e18, mid;
+    ll l = 1, r = 1e18, mid;
     while (l <= r) {
         mid = l + (r - l >> 1);
         if (check(mid)) {
