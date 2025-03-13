@@ -1,11 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 #define ll long long
 #define dbg cout << "dfad\n";
 
 int main() {
-    // freopen("lucky.inp", "r", stdin);
-    // freopen("lucky.out", "w", stdout);
+    freopen("lucky.inp", "r", stdin);
+    freopen("lucky.out", "w", stdout);
     ll n;
     cin >> n;
 

@@ -4,7 +4,6 @@ using namespace std;
 #define fast ios_base::sync_with_stdio(0); cin.tie(0); cin.tie(0);
 #define MAX 1000005
 
-ll tree [4 * MAX]{0};
 ll i, j, n, x, y, a[100005];
 vector <pair <ll, ll> > vt;
 
