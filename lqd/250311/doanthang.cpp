@@ -51,3 +51,27 @@ int main () {
 	}
 	cout << get (1, 1, MAX, 0, MAX);
 }
+/*
+bool cmp (pair<int, int>a, pair<int, int> b) {
+	if (a.first == b.first) {
+		return a.second > b.second;
+	}
+	return a.first < b.first;
+}
+
+int main () {
+	cin >> n;
+	for (i = 1; i <= n; i++) {
+		cin >> x >> y;
+		vt.push_back ({x, y});
+	}
+	sort (vt.begin(), vt.end(), cmp);
+    vector<int> dp;
+	for (i = vt.size() - 1; i >= 0; i--) {
+        auto it = upper_bound(dp.begin(), dp.end(), vt[i].second); // upper_bound accounts for segments with overlapping endpoint while lower_bound only allows segments with strictly less-than endpoint
+        if (it == dp.end()) dp.push_back(vt[i].second);
+        else *it = vt[i].second;
+	}
+    cout << dp.size();
+}
+*/
