@@ -40,6 +40,7 @@ public void test(int a) {
 public void test(String s) {
 	// in ra s
 }
+## Kiểu dữ liệu trả về là không quan trọng. không có 2 hàm có tham số giống nhau mà kiểu dữ liệu trả về khác nhau (method call is ambiguous)
 
 => sẽ tùy vào kiểu dữ liệu và tham số mà chọn hàm để gọi. Bên cạnh đó, cách thức gọi giống như ở mục 1.
 
