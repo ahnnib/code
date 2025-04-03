@@ -55,8 +55,20 @@ signed main() {
     for (int i = 1; i <= m; i++)
     {
         int u = op[i].fi, v = op[i].se.fi, w = op[i].se.se;
+        /*
+      1
+    /   \
+   a     b
+    \   /
+     u-v
+     | |
+     c-d
+      |
+      N
+        */
         if (d1[u] + dn[v] + w == d1[n] || d1[v] + dn[u] + w == d1[n])
         {
+            // all path to u must go through v, all path from n to v must go through u
             if (cnt1[u] == cnt1[v] && cntn[u] == cntn[v]) br.insert({min(u,v), max(u,v)});
         }
     }
